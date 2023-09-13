@@ -10,13 +10,13 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface CommentMapper {
 
-	@Mapping(source = "articleEntity.id", target = "articleId")
-	CommentDTO entityToDTO(CommentEntity commentEntity);
+    @Mapping(source = "articleEntity.id", target = "articleId")
+    CommentDTO entityToDTO(CommentEntity commentEntity);
 
-	@Mapping(source = "articleId", target = "articleEntity.id")
-	CommentEntity dtoToEntity(CommentDTO commentDTO);
+    @Mapping(source = "articleId", target = "articleEntity.id")
+    CommentEntity dtoToEntity(CommentDTO commentDTO);
 
-	List<CommentEntity> dtoToEntityList(List<CommentDTO> commentDTO);
+    List<CommentEntity> dtoToEntityList(List<CommentDTO> commentDTO);
 
-	List<CommentDTO> entityToDTOList(List<CommentEntity> commentEntity);
+    List<CommentDTO> entityToDTOList(List<CommentEntity> commentEntity);
 }

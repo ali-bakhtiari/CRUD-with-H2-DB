@@ -1,6 +1,5 @@
 package com.ali.dto;
 
-import com.ali.enums.CategoryEnum;
 import com.ali.enums.StatusEnum;
 
 import javax.validation.constraints.NotEmpty;
@@ -9,75 +8,75 @@ import java.time.LocalDateTime;
 
 public class ArticleDTO {
 
-	private Long id;
+    private Long id;
 
-	private String title;
+    private Long categoryId;
+    private String title;
 
-	@NotEmpty
-	@Size(max = 400)
-	private String content;
+    @NotEmpty
+    @Size(max = 400)
+    private String content;
 
-	private CategoryEnum categoryEnum;
+    private StatusEnum statusEnum;
 
-	private StatusEnum statusEnum;
+    private LocalDateTime createDateTime;
 
-	private LocalDateTime createDateTime;
+    private LocalDateTime updateDateTime;
 
-	private LocalDateTime updateDateTime;
+    public LocalDateTime getCreateDateTime() {
+        return createDateTime;
+    }
 
-	public LocalDateTime getCreateDateTime() {
-		return createDateTime;
-	}
+    public void setCreateDateTime(LocalDateTime createDateTime) {
+        this.createDateTime = createDateTime;
+    }
 
-	public void setCreateDateTime(LocalDateTime createDateTime) {
-		this.createDateTime = createDateTime;
-	}
+    public LocalDateTime getUpdateDateTime() {
+        return updateDateTime;
+    }
 
-	public LocalDateTime getUpdateDateTime() {
-		return updateDateTime;
-	}
+    public void setUpdateDateTime(LocalDateTime updateDateTime) {
+        this.updateDateTime = updateDateTime;
+    }
 
-	public void setUpdateDateTime(LocalDateTime updateDateTime) {
-		this.updateDateTime = updateDateTime;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public StatusEnum getStatusEnum() {
+        return statusEnum;
+    }
 
-	public CategoryEnum getCategoryEnum() {
-		return categoryEnum;
-	}
+    public void setStatusEnum(StatusEnum statusEnum) {
+        this.statusEnum = statusEnum;
+    }
 
-	public void setCategoryEnum(CategoryEnum categoryEnum) {
-		this.categoryEnum = categoryEnum;
-	}
+    public Long getCategoryId() {
+        return categoryId;
+    }
 
-	public StatusEnum getStatusEnum() {
-		return statusEnum;
-	}
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
-	public void setStatusEnum(StatusEnum statusEnum) {
-		this.statusEnum = statusEnum;
-	}
 }

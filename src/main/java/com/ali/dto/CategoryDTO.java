@@ -1,20 +1,28 @@
 package com.ali.dto;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
-public class CommentDTO {
+public class CategoryDTO {
 
     private Long id;
 
-    private Long articleId;
-
     @NotEmpty
-    private String articleComment;
+    @Size(max = 255)
+    private String title;
 
     private LocalDateTime createDateTime;
 
     private LocalDateTime updateDateTime;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public LocalDateTime getCreateDateTime() {
         return createDateTime;
@@ -38,21 +46,5 @@ public class CommentDTO {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getArticleId() {
-        return articleId;
-    }
-
-    public void setArticleId(Long articleId) {
-        this.articleId = articleId;
-    }
-
-    public String getArticleComment() {
-        return articleComment;
-    }
-
-    public void setArticleComment(String articleComment) {
-        this.articleComment = articleComment;
     }
 }

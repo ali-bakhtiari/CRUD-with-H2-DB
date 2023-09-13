@@ -7,19 +7,15 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "comment")
-public class CommentEntity {
+@Table(name = "category")
+public class CategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "articleComment", nullable = false)
-    private String articleComment;
-
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "article_id", nullable = false)
-    private ArticleEntity articleEntity;
+    @Column(name = "title", nullable = false)
+    private String title;
 
     @CreationTimestamp
     private LocalDateTime createDateTime;
@@ -27,12 +23,20 @@ public class CommentEntity {
     @UpdateTimestamp
     private LocalDateTime updateDateTime;
 
-    public ArticleEntity getArticleEntity() {
-        return articleEntity;
+    public Long getId() {
+        return id;
     }
 
-    public void setArticleEntity(ArticleEntity articleEntity) {
-        this.articleEntity = articleEntity;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public LocalDateTime getCreateDateTime() {
@@ -51,19 +55,5 @@ public class CommentEntity {
         this.updateDateTime = updateDateTime;
     }
 
-    public String getArticleComment() {
-        return articleComment;
-    }
 
-    public void setArticleComment(String articleComment) {
-        this.articleComment = articleComment;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

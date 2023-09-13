@@ -1,6 +1,5 @@
 package com.ali.entity;
 
-import com.ali.enums.CategoryEnum;
 import com.ali.enums.StatusEnum;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -12,86 +11,95 @@ import java.time.LocalDateTime;
 @Table(name = "article")
 public class ArticleEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	@Column(name = "title", nullable = false)
-	private String title;
+    @Column(name = "title", nullable = false)
+    private String title;
 
-	@Column(name = "content", nullable = false)
-	private String content;
+    @Column(name = "content", nullable = false)
+    private String content;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "categoryEnum")
-	private CategoryEnum categoryEnum;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryEntity categoryEntity;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "statusEnum")
-	private StatusEnum statusEnum;
 
-	@CreationTimestamp
-	private LocalDateTime createDateTime;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "statusEnum")
+    private StatusEnum statusEnum;
 
-	@UpdateTimestamp
-	private LocalDateTime updateDateTime;
+    @CreationTimestamp
+    private LocalDateTime createDateTime;
 
-	public ArticleEntity() {
-	}
+    @UpdateTimestamp
+    private LocalDateTime updateDateTime;
 
-	public LocalDateTime getCreateDateTime() {
-		return createDateTime;
-	}
+    // public ArticleEntity() {
+//}
 
-	public void setCreateDateTime(LocalDateTime createDateTime) {
-		this.createDateTime = createDateTime;
-	}
+//    public CategoryManagementEntity getCategoryManagementEntity() {
+//        return categoryManagementEntity;
+//    }
+//
+//    public void setCategoryManagementEntity(CategoryManagementEntity categoryManagementEntity) {
+//        this.categoryManagementEntity = categoryManagementEntity;
+//    }
 
-	public LocalDateTime getUpdateDateTime() {
-		return updateDateTime;
-	}
+    public LocalDateTime getCreateDateTime() {
+        return createDateTime;
+    }
 
-	public void setUpdateDateTime(LocalDateTime updateDateTime) {
-		this.updateDateTime = updateDateTime;
-	}
+    public void setCreateDateTime(LocalDateTime createDateTime) {
+        this.createDateTime = createDateTime;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public LocalDateTime getUpdateDateTime() {
+        return updateDateTime;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setUpdateDateTime(LocalDateTime updateDateTime) {
+        this.updateDateTime = updateDateTime;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public CategoryEnum getCategoryEnum() {
-		return categoryEnum;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public void setCategoryEnum(CategoryEnum categoryEnum) {
-		this.categoryEnum = categoryEnum;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public StatusEnum getStatusEnum() {
-		return statusEnum;
-	}
+    public StatusEnum getStatusEnum() {
+        return statusEnum;
+    }
 
-	public void setStatusEnum(StatusEnum statusEnum) {
-		this.statusEnum = statusEnum;
-	}
+    public void setStatusEnum(StatusEnum statusEnum) {
+        this.statusEnum = statusEnum;
+    }
+
+    public CategoryEntity getCategoryEntity() {
+        return categoryEntity;
+    }
+
+    public void setCategoryEntity(CategoryEntity categoryEntity) {
+        this.categoryEntity = categoryEntity;
+    }
 }
